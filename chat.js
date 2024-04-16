@@ -5,7 +5,21 @@ const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
 let userText = "Hello";
 
-const API_KEY = fetch("https://hostapi-ipwd.onrender.com/env").then(response=>response.json()).then(data=>data.API_KEY); 
+fetch("https://hostapi-ipwd.onrender.com/env")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const API_KEY = data.API_KEY;
+    console.log(API_KEY); // or do something else with the API_KEY
+  })
+  .catch((error) => {
+    console.error("There was a problem with the fetch operation:", error);
+  });
+
 console.log(API_KEY);
 const loadDataFromLocalstorage = () => {
   const themeColor = localStorage.getItem("themeColor");
