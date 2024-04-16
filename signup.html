@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="form-wrapper">
+        <h2>Sign Up</h2>
+        <form action="#" onsubmit="signup(event)">
+            <div class="form-control">
+                <input type="text" id="name" required>
+                <label>Your Name</label>
+            </div>
+            <div class="form-control">
+                <input type="email" id="mail" required>
+                <label>Email</label>
+            </div>
+            <div class="form-control">
+                <input type="number" id="phone" required>
+                <label>Phone Number</label>
+            </div>
+            <div class="form-control">
+                <input type="password" id="pass" required>
+                <label>Password</label>
+            </div>
+            <button type="submit">Sign Up</button>
+            <div class="form-help"> 
+            </div>
+        </form>
+        <p>Already have an account? <a href="login.html">Sign In</a></p>
+        <p>Go to <a href="index.html">Home!</a></p>
+    </div>
+</body>
+<script src="signup.js" type="module"></script>
+</html>
