@@ -6,6 +6,7 @@ const deleteButton = document.querySelector("#delete-btn");
 let userText = "Hello";
 
 const API_KEY = fetch("https://hostapi-ipwd.onrender.com/env").then(response=>response.json()).then(data=>data.API_KEY); 
+console.log(API_KEY);
 const loadDataFromLocalstorage = () => {
   const themeColor = localStorage.getItem("themeColor");
   document.body.classList.toggle("light-mode", themeColor === "light_mode");
