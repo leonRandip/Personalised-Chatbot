@@ -196,6 +196,7 @@ chatInput.addEventListener("keydown", (e) => {
   }
 });
 function logout(){
+  localStorage.removeItem('all-chats');
   window.location.href='login.html';
 }
 loadDataFromLocalstorage();
