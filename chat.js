@@ -6,7 +6,7 @@ const deleteButton = document.querySelector("#delete-btn");
 
 let userText = "Hello";
 let API_KEY;
-let GitKey;
+let GitKey = "Enter your GitHub API key";
 
 fetch("https://hostapi-ipwd.onrender.com/env")
   .then((response) => {
