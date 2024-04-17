@@ -3,6 +3,7 @@ const sendButton = document.querySelector("#send-btn");
 const chatContainer = document.querySelector(".chat-container");
 const themeButton = document.querySelector("#theme-btn");
 const deleteButton = document.querySelector("#delete-btn");
+localStorage.setItem(token, "login-token");
 let userText = "Hello";
 let API_KEY;
 fetch("https://hostapi-ipwd.onrender.com/env")
@@ -194,5 +195,10 @@ chatInput.addEventListener("keydown", (e) => {
     handleOutgoingChat();
   }
 });
+function logout(){
+  localStorage.removeItem('token');
+  window.location.href='login.html';
+}
 loadDataFromLocalstorage();
 sendButton.addEventListener("click", handleOutgoingChat);
+
