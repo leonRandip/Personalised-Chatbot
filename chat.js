@@ -42,7 +42,6 @@ fetch("https://hostapi-ipwd.onrender.com/env")
       event.stopPropagation();
       GitKey = apiKeyInput.value;
       localStorage.setItem("gitkey",GitKey);
-      console.log("API key:", GitKey);
 
       closePopup();
     });
@@ -51,8 +50,8 @@ fetch("https://hostapi-ipwd.onrender.com/env")
     popup.appendChild(submitBtn);
 
     popup.style.position = "absolute";
-    popup.style.top = rect.top - popup.offsetHeight - 120 + "px";
-    popup.style.left = rect.left + "px";
+    popup.style.top = rect.top - popup.offsetHeight - 100 + "px";
+    popup.style.left = rect.left -30 + "px";
 
     document.body.appendChild(popup);
 
