@@ -6,6 +6,8 @@ const deleteButton = document.querySelector("#delete-btn");
 
 let userText = "Hello";
 let API_KEY;
+let GitKey;
+
 fetch("https://hostapi-ipwd.onrender.com/env")
   .then((response) => {
     if (!response.ok) {
@@ -19,7 +21,53 @@ fetch("https://hostapi-ipwd.onrender.com/env")
   .catch((error) => {
     console.error("There was a problem with the fetch operation:", error);
   });
-console.log(API_KEY); 
+  const githubBtn = document.getElementById("github-btn");
+
+  githubBtn.addEventListener("click", function (event) {
+    event.stopPropagation();
+
+    const rect = githubBtn.getBoundingClientRect();
+
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+
+    const apiKeyInput = document.createElement("input");
+    apiKeyInput.setAttribute("type", "text");
+    apiKeyInput.setAttribute("placeholder", "Enter your GitHub API key");
+    apiKeyInput.setAttribute("value", localStorage.getItem('gitkey'));
+
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit";
+    submitBtn.addEventListener("click", function (event) {
+      event.stopPropagation();
+      GitKey = apiKeyInput.value;
+      localStorage.setItem("gitkey",GitKey);
+      console.log("API key:", GitKey);
+
+      closePopup();
+    });
+
+    popup.appendChild(apiKeyInput);
+    popup.appendChild(submitBtn);
+
+    popup.style.position = "absolute";
+    popup.style.top = rect.top - popup.offsetHeight - 120 + "px";
+    popup.style.left = rect.left + "px";
+
+    document.body.appendChild(popup);
+
+    function closePopup() {
+      popup.remove();
+      document.removeEventListener("click", closePopup);
+    }
+
+    document.addEventListener("click", function (event) {
+      if (!popup.contains(event.target) && event.target !== githubBtn) {
+        closePopup();
+      }
+    });
+  });
+
 const loadDataFromLocalstorage = () => {
   const themeColor = localStorage.getItem("themeColor");
   document.body.classList.toggle("light-mode", themeColor === "light_mode");
@@ -40,7 +88,7 @@ const createChatElement = (content, className) => {
   return chatDiv; 
 };
 const getGitHubInfo = async () => {
-  const githubToken = "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";
+  const githubToken = localStorage.getItem("gitkey");
   const headers = {
     "Authorization": `Bearer ${githubToken}`,
     "Content-Type": "application/json"
@@ -195,8 +243,12 @@ chatInput.addEventListener("keydown", (e) => {
     handleOutgoingChat();
   }
 });
+
+
+
+
 function logout(){
-  localStorage.removeItem('all-chats');
+  localStorage.clear();
   window.location.href='login.html';
 }
 loadDataFromLocalstorage();
