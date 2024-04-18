@@ -1,63 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
 body{
     background: linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0.2)),url("https://img.freepik.com/free-vector/isometric-chatbot-flowchart-with-smartphones-computers-message-bubbles_1284-55214.jpg?w=740&t=st=1694537386~exp=1694537986~hmac=ac1256421c1e53ae371959fe340c1564a933fa2840a3dadd0552f4b65761ba9b");
     background-size: cover;
     background-position: center;
 }
-a{
-    margin-right: 30px;
-}
-.custom-button {
-    background-color: #099fe5; /* Background color */
-    color: #099fe5; /* Text color */
-    border: none; /* Remove border */
-}
-.navbar-brand{
-    margin-left: 30px;
-}
+
 .wrapper {
     display: grid;
     place-content: center;
     background-color: var(--background-color);
     min-height: 10vh;
-    font-family: "Oswald", sans-serif;
-    font-size: 45px;
+    font-family: "Poppins", sans-serif;
+    font-size: 35px;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--text-color);
   }
-
-  .content{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    border-radius: 15px;
-    padding: 70px;
-    width: 650px;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, .75);
-  }
-
-  .content h2{
-    color: #ffffffdb;
-    font-size: 2rem;
-    text-align: center;
-  }
-  .content h6{
-    color: #ffffffdb;
-    text-align: center;
-  }
-
-  .contenttext{
-    color: #ffffff65;
-    font-size: 0.9rem;
-  }
-
-  .starttext{
-    color: #ffffff8d;
-    font-size: 1rem;
-    text-align: left;
-  }
-  
   .wrapper > div {
     grid-area: 1/1/-1/-1;
   }
@@ -79,4 +40,69 @@ a{
     --text-color: hsla(0, 0%, 98%, 0.885);
     margin: 0;
     font-size: 10px;
+  }
+
+  
+  
+  .content{
+    width: 50%;
+    color: white;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 15px;
+    padding: 60px;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(7px) saturate(170%);
+    -webkit-backdrop-filter: blur(7px) saturate(170%);
+    background-color: rgba(0, 0, 0, 0.48);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+
+  .nav_flex{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+
+  .button{
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 100px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+  }
+  
+  .button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+  }
+  
+  .button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }
+
+  @media (max-width:988px) {
+    .content{
+      width: 95%;
+    }
+    .nav_flex{
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
